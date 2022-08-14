@@ -1,12 +1,12 @@
 console.log('hello helpp');
 
-let computer= getcomputerchoice()
-let user = getuserchoice()
+let computer= getcomputerchoice
 
 
-function getuserchoice (){  let userinput = window.prompt("rock,paper,scissors");
+const user1 = function getuserchoice (){  let userinput = window.prompt("rock,paper,scissors");
 return userinput}
-getuserchoice()
+let user = user1()
+console.log(user)
 
 //computer choice
 
@@ -24,10 +24,11 @@ function playgame(){
 let playr=playround()
 
 
+
 function playround(user,computer){ 
     let result = ''
-    if (user === 'paper' && computer === 'rock' || user ==='rock' && computer === 'scissors' || user === 'scissors' && computer === 'paper') {return result +1}
-    else if (user === 'rock' && computer === 'paper' ||user === 'paper' && computer === 'scissors' || user === 'scissors' && computer === 'rock') { return result +1;}
+    if (user === 'paper' && computer === 'rock' || user ==='rock' && computer === 'scissors' || user === 'scissors' && computer === 'paper') {return result +2}
+    else if (user === 'rock' && computer === 'paper' ||user === 'paper' && computer === 'scissors' || user === 'scissors' && computer === 'rock') { return result +5;}
   else if (user === computer){ return result +1 }
     
     else return alert ('please try again!');

@@ -3,10 +3,12 @@ console.log('hello helpp');
 let computer= getcomputerchoice()
 let user = getuserchoice()
 
-playgame(user, computer)
 
-function getuserchoice (){let userinput = window.prompt("rock,paper,scissors");
+function getuserchoice (){  let userinput = window.prompt("rock,paper,scissors");
 return userinput}
+getuserchoice()
+
+//computer choice
 
 function getcomputerchoice (min,max) {let choice = Math.floor((Math.random)()*3) + 1; 
 
@@ -15,14 +17,26 @@ function getcomputerchoice (min,max) {let choice = Math.floor((Math.random)()*3)
   else return 'scissors';}
 
 
-function playgame(user,computer){  //learn syntax for functions and variables//
-  
 
-  if (user === 'paper' && computer === 'rock' || user ==='rock' && computer === 'scissors' || user === 'scissors' && computer === 'paper') alert ('win')
-  if (user === 'rock' && computer === 'paper') alert ('loser');
-  if (user === 'paper' && computer === 'scissors')alert ('loser'); 
-  if  (user === 'scissors' && computer === 'rock')alert ('loser'); 
-  
-  else return 'lose'
+// playround 
+
+function playgame(){      
+let playr=playround()
+
+
+function playround(user,computer){ 
+    let result = ''
+    if (user === 'paper' && computer === 'rock' || user ==='rock' && computer === 'scissors' || user === 'scissors' && computer === 'paper') {return result +1}
+    else if (user === 'rock' && computer === 'paper' ||user === 'paper' && computer === 'scissors' || user === 'scissors' && computer === 'rock') { return result +1;}
+  else if (user === computer){ return result +1 }
+    
+    else return alert ('please try again!');
+    }
+
+return console.log(playr)
 
 }
+
+//console.log(playround(user,computer))
+
+playgame()

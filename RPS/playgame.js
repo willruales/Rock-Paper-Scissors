@@ -1,10 +1,4 @@
 console.log('hello helpp');
-
-
-
-
-
-
 //computer choice
 
 function getcomputerchoice (min,max) {let choice = Math.floor((Math.random)()*3) + 1; 
@@ -13,10 +7,7 @@ function getcomputerchoice (min,max) {let choice = Math.floor((Math.random)()*3)
   else if (choice == "2") return 'paper';
   else return 'scissors';}
 
-
-
-// playround 
-
+// playround
  
 function playgame(){
   function getuserchoice (){  let userinput = window.prompt("rock,paper,scissors");

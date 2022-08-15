@@ -2,8 +2,6 @@ console.log('hello helpp');
 
 
 
-function getuserchoice (){  let userinput = window.prompt("rock,paper,scissors");
-return userinput}
 
 
 
@@ -21,7 +19,11 @@ function getcomputerchoice (min,max) {let choice = Math.floor((Math.random)()*3)
 
  
 function playgame(){
-
+  function getuserchoice (){  let userinput = window.prompt("rock,paper,scissors");
+  return userinput}
+  for (let i = 0; i < 5; i++) {
+  getuserchoice();
+  }
 
 const playr = function playround(user,computer){ 
     let result = 0

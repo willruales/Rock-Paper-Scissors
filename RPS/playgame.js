@@ -1,41 +1,36 @@
 console.log('hello helpp');
+//computer choice
 
-
-
-let user = getuserchoice()
-function getuserchoice(){let userinput = window.prompt("rock,paper,scissors");
-return userinput}
-
-
-function playgame(){      
-let playr=playround()
-
-
-
-
-function getcomputerchoice(min,max) {let choice = Math.floor((Math.random)()*3) + 1; 
+function getcomputerchoice (min,max) {let choice = Math.floor((Math.random)()*3) + 1; 
 
   if  (choice == "1") return 'rock';
   else if (choice == "2") return 'paper';
   else return 'scissors';}
 
 
-
-
-function playround(user,computer){ 
-  let computer= getcomputerchoice()
-    let result = ''
-    if (user === 'paper' && computer === 'rock' || user ==='rock' && computer === 'scissors' || user === 'scissors' && computer === 'paper') {return result +1}
-    else if (user === 'rock' && computer === 'paper' ||user === 'paper' && computer === 'scissors' || user === 'scissors' && computer === 'rock') { return result +2;}
-  else if (user === computer){ return result +3 }
+ 
+function playgame(){
+  function getuserchoice (){  let userinput = window.prompt("rock,paper,scissors");
+  return userinput} 
+    const playr = function playround(user,computer){ 
+    let result = 0;
+    user = getuserchoice();
+    computer = getcomputerchoice()
+    if (user === 'paper' && computer === 'rock' || user ==='rock' && computer === 'scissors' || user === 'scissors' && computer === 'paper') {return result =+1}
+    else if (user === 'rock' && computer === 'paper' ||user === 'paper' && computer === 'scissors' || user === 'scissors' && computer === 'rock') { return result =-1;}
+  else if (user === computer){ return result =+0}
     
-    else return alert ('please try again!');
+    else return alert ('please try again!');//make return
     }
 
-return console.log(playr)
+let play = playr()
+
+
+console.log(play)
 
 }
 
-//console.log(playround(user,computer))
+for (let i = 0; i < 2; i++) {
+  playgame()
 
-playgame()
+}

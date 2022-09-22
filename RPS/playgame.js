@@ -10,6 +10,7 @@ function getcomputerchoice(min, max) {
 }
 
 
+
 function playgame() {
 
   function getuserchoice() {
@@ -31,9 +32,11 @@ function playgame() {
 
   let play = playr()
 
+
   return play;
 
 }
+
 
 let score = function getScore() {
   let sum = 0;

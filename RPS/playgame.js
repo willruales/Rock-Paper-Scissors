@@ -18,7 +18,7 @@ function playgame() {
     return userinput
   }
 
-  const playr = function playround(user, computer) {
+  const playround = function playround(user, computer) {
     //let result = '';
     user = getuserchoice();
     computer = getcomputerchoice()
@@ -30,7 +30,7 @@ function playgame() {
     return result;
   }
 
-  let play = playr()
+  let play = playround()
 
 
   return play;
@@ -45,7 +45,9 @@ let score = function getScore() {
     playgame()
     sum += result[i];
   }
-  console.log(sum);
+  if (sum <= 0) { return console.log('lose', sum) }
+  { return console.log('win', sum) }
+
 }
 score()
 

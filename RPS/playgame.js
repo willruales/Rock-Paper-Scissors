@@ -1,5 +1,3 @@
-console.log('hello helpp');
-//computer choice
 let result = []
 function getcomputerchoice(min, max) {
   let choice = Math.floor((Math.random)() * 3) + 1;
@@ -9,14 +7,16 @@ function getcomputerchoice(min, max) {
   else return 'scissors';
 }
 
-
-
 function playgame() {
 
-  function getuserchoice() {
-    let userinput = window.prompt("rock,paper,scissors");
-    return userinput
+
+  let buttonArray = document.querySelectorAll('Button');
+
+  function getuserchoice(e) {
+    console.log(e.target.id);
   }
+  buttonArray.forEach((buttonArray) => { buttonArray.addEventListener('click', getuserchoice) })
+
 
   const playr = function playround(user, computer) {
     //let result = '';

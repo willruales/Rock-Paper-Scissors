@@ -1,4 +1,6 @@
 let result = []
+let buttonArray = document.querySelectorAll('Button');
+
 function getcomputerchoice(min, max) {
   let choice = Math.floor((Math.random)() * 3) + 1;
 
@@ -7,45 +9,37 @@ function getcomputerchoice(min, max) {
   else return 'scissors';
 }
 
-function playgame() {
-
-
-  let buttonArray = document.querySelectorAll('Button');
-
-  function getuserchoice(e) {
-    console.log(e.target.id);
-  }
-  buttonArray.forEach((buttonArray) => { buttonArray.addEventListener('click', getuserchoice) })
-
-
-  const playr = function playround(user, computer) {
-    //let result = '';
-    user = getuserchoice();
-    computer = getcomputerchoice()
-    if (user === 'paper' && computer === 'rock' || user === 'rock' && computer === 'scissors' || user === 'scissors' && computer === 'paper') { result.push(1) }
-    else if (user === 'rock' && computer === 'paper' || user === 'paper' && computer === 'scissors' || user === 'scissors' && computer === 'rock') { result.push(-1) }
-    else if (user === computer) { result.push(0) }
-
-    else return alert('please try again!');//make return
-    return result;
-  }
-
-  let play = playr()
-
-
-  return play;
-
+function getuserchoice(e) {
+  console.log(e.target.id);
 }
 
 
+
+
+const playround = function playround(e, user, computer) {
+  user = e.target.id;
+  computer = getcomputerchoice()
+  if (user === 'paper' && computer === 'rock' || user === 'rock' && computer === 'scissors' || user === 'scissors' && computer === 'paper') { result.push(1) }
+  else if (user === 'rock' && computer === 'paper' || user === 'paper' && computer === 'scissors' || user === 'scissors' && computer === 'rock') { result.push(-1) }
+  else if (user === computer) { result.push(0) }
+
+  else return alert('please try again!');//make return
+  return result;
+  //console.log(result)
+}
+
+
+
+
 let score = function getScore() {
-  let sum = 0;
-  playgame()
+  let sum = 1;
+  buttonArray.forEach((buttonArray) => { buttonArray.addEventListener('click', playround) })
   for (i = 0; i < 4; i++) {
-    playgame()
+
     sum += result[i];
   }
   console.log(sum);
+  //console.log(result)
 }
 score()
 

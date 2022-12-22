@@ -1,13 +1,23 @@
-let buttonArray = document.querySelectorAll('Button');
+let buttonArray = document.querySelectorAll('#buttons');
+let result = document.querySelector('#winner');
+let resetButton = document.querySelector('#reset');
+let playerScore = document.querySelector('#playerscore');
+// let userScore = document.querySelector('#score');
+let computerScore = document.querySelector('#computerscore');
+// let resetButton = document.q
 
 
-let arr = []
+const scoreboard = {
+  player: 0,
+  computer: 0
+};
 
 function play(e) {
   const userChoice = e.target.id;
   const computerChoice = getcomputerchoice();
   const winner = getWinner(userChoice, computerChoice);
-  console.log(userChoice, computerChoice, winner)
+  //console.log(userChoice, computerChoice, winner);
+  showWinner(winner)
 
 }
 
@@ -19,15 +29,44 @@ function getcomputerchoice(min, max) {
   else return 'scissors';
 }
 
-function getWinner(user, computer) {
+function getWinner(u, c) {
 
-  if (user === 'paper' && computer === 'rock' || user === 'rock' && computer === 'scissors' || user === 'scissors' && computer === 'paper') { return 'win' }
-  else if (user === 'rock' && computer === 'paper' || user === 'paper' && computer === 'scissors' || user === 'scissors' && computer === 'rock') { return 'lose' }
-  else if (user === computer) { return 'draw' }
+  if (u === 'paper' && c === 'rock' || u === 'rock' && c === 'scissors' || u === 'scissors' && c === 'paper') { scoreboard.player++, playerScore.innerHTML = `${scoreboard.player}` }
+  else if (u === 'rock' && c === 'paper' || u === 'paper' && c === 'scissors' || u === 'scissors' && c === 'rock') { scoreboard.computer++, computerScore.innerHTML = `${scoreboard.computer}` }
+  // else scoreboard.player++, scoreboard.computer++
+  else console.log('draw')
 
-  else return alert('please try again!');//make return
+
+}
+function showWinner() {
+  console.log(scoreboard.player, scoreboard.computer)
+  if (scoreboard.player === 5) {
+    console.log("you win")
+    result.innerHTML = 'you win! play again?'
+    buttonArray.forEach((buttonArray) => { buttonArray.removeEventListener('click', play) })
+  }
+  else if (scoreboard.computer === 5) {
+    console.log('you lose!, play again?')
+    result.innerHTML = 'you lose'
+    buttonArray.forEach((buttonArray) => { buttonArray.removeEventListener('click', play) })
+  }
+
 
 }
 
+function resetscore() {
+  scoreboard.player = 0;
+  scoreboard.computer = 0;
+  playerScore.innerHTML = `${scoreboard.player}`
+  computerScore.innerHTML = `${scoreboard.computer}`
+  result.innerHTML = " "
+
+  buttonArray.forEach((buttonArray) => { buttonArray.addEventListener('click', play) })
+}
+
+
 
 buttonArray.forEach((buttonArray) => { buttonArray.addEventListener('click', play) })
+resetButton.addEventListener('click', resetscore)
+
+
